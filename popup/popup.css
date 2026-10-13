@@ -1,0 +1,300 @@
+:root {
+  --sb-bg: #14141a;
+  --sb-card: #1c1c24;
+  --sb-line: #2c2c38;
+  --sb-text: #eceef2;
+  --sb-muted: #9aa0ad;
+  --sb-pink: #fb7299;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 348px;
+  margin: 0;
+  padding: 12px;
+  background: var(--sb-bg);
+  color: var(--sb-text);
+  font: 13px/1.5 -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sb-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sb-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--sb-pink), #f25d8e);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.sb-header h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sb-header p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--sb-muted);
+}
+
+/* 开关 */
+.sb-switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  flex: none;
+}
+
+.sb-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sb-slider {
+  position: absolute;
+  inset: 0;
+  background: #3a3a48;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.16s ease;
+}
+
+.sb-slider::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.16s ease;
+}
+
+.sb-switch input:checked + .sb-slider {
+  background: var(--sb-pink);
+}
+
+.sb-switch input:checked + .sb-slider::after {
+  transform: translateX(18px);
+}
+
+/* 卡片 */
+.sb-card {
+  background: var(--sb-card);
+  border: 1px solid var(--sb-line);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.sb-grow textarea {
+  flex: 1;
+}
+
+.sb-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sb-row-top {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sb-label {
+  color: var(--sb-muted);
+  font-size: 12px;
+}
+
+.sb-hint {
+  font-size: 11px;
+  color: #6f7583;
+}
+
+.sb-checks {
+  display: flex;
+  gap: 10px;
+}
+
+.sb-checks label,
+.sb-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--sb-text);
+  cursor: pointer;
+}
+
+.sb-checks input,
+.sb-check input {
+  accent-color: var(--sb-pink);
+  margin: 0;
+}
+
+/* 分段控件 */
+.sb-seg {
+  display: flex;
+  background: #26262f;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.sb-seg button {
+  border: 0;
+  background: transparent;
+  color: var(--sb-muted);
+  font: inherit;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sb-seg button.sb-on {
+  background: var(--sb-pink);
+  color: #fff;
+}
+
+/* 统计 */
+.sb-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #26202c, #1d1d26);
+  border: 1px solid var(--sb-line);
+}
+
+.sb-stat-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--sb-pink);
+  min-width: 42px;
+  text-align: center;
+}
+
+.sb-stat-body {
+  min-width: 0;
+}
+
+.sb-stat-title {
+  font-size: 12px;
+}
+
+.sb-stat-names {
+  font-size: 11px;
+  color: var(--sb-muted);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 文本域 */
+textarea {
+  width: 100%;
+  min-height: 96px;
+  max-height: 240px;
+  resize: vertical;
+  background: #16161d;
+  border: 1px solid var(--sb-line);
+  border-radius: 9px;
+  color: var(--sb-text);
+  font: 12px/1.6 ui-monospace, Consolas, 'Microsoft YaHei', monospace;
+  padding: 8px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--sb-pink);
+}
+
+.sb-details summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--sb-muted);
+  user-select: none;
+}
+
+.sb-details textarea {
+  min-height: 64px;
+  margin-top: 7px;
+}
+
+/* 底部按钮 */
+.sb-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sb-btn {
+  border: 1px solid var(--sb-line);
+  background: #22222b;
+  color: var(--sb-text);
+  font: inherit;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sb-btn:hover {
+  border-color: var(--sb-pink);
+}
+
+.sb-btn.sb-danger:hover {
+  border-color: #e5484d;
+  color: #ffb3b5;
+}
+
+.sb-saved {
+  margin-left: auto;
+  font-size: 11px;
+  color: #5fd07a;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sb-saved.sb-show {
+  opacity: 1;
+}
+
+/* 总开关关掉时，把下面这些设置视觉上压暗，一眼看出当前是停用状态 */
+body.sb-disabled .sb-card,
+body.sb-disabled .sb-stats {
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}

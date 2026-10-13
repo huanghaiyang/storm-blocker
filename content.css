@@ -1,0 +1,53 @@
+/*!
+ * 风暴屏蔽器 — 注入样式
+ * 用属性选择器隐藏/淡化，开关由 <html> 上的 data-sb-off 控制，
+ * 这样切开关不需要重扫 DOM。
+ */
+
+/* 关闭状态：什么都不做 */
+html[data-sb-off] [data-sb-hidden] {
+  display: revert !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* 屏蔽模式：整块移除，后续内容自动补位 */
+html:not([data-sb-off]) [data-sb-hidden='hide'] {
+  display: none !important;
+}
+
+/* 淡化模式：留着占位，一眼看出被拦掉了多少 */
+html:not([data-sb-off]) [data-sb-hidden='dim'] {
+  opacity: 0.18 !important;
+  filter: grayscale(1) blur(1px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.15s ease;
+}
+
+/* 角标：屏幕右下角的一行小提示 */
+#sb-toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483647;
+  max-width: 320px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(23, 23, 27, 0.92);
+  color: #f2f3f5;
+  font: 12px/1.5 -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#sb-toast.sb-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#sb-toast b {
+  color: #ff6699;
+}

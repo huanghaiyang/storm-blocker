@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>风暴屏蔽器</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="sb-header">
+      <div class="sb-brand">
+        <span class="sb-logo">飙</span>
+        <div>
+          <h1>风暴屏蔽器</h1>
+          <p>按 UP 主名字过滤视频</p>
+        </div>
+      </div>
+      <label class="sb-switch" title="总开关">
+        <input type="checkbox" id="enabled" />
+        <span class="sb-slider"></span>
+      </label>
+    </header>
+
+    <section class="sb-card">
+      <div class="sb-row">
+        <span class="sb-label">拦截方式</span>
+        <div class="sb-seg" id="mode">
+          <button type="button" data-mode="hide">整块移除</button>
+          <button type="button" data-mode="dim">淡化留位</button>
+        </div>
+      </div>
+      <div class="sb-row">
+        <span class="sb-label">生效站点</span>
+        <div class="sb-checks">
+          <label><input type="checkbox" id="plat-bilibili" /> B 站</label>
+          <label><input type="checkbox" id="plat-youtube" /> YouTube</label>
+        </div>
+      </div>
+      <div class="sb-row">
+        <span class="sb-label">角标提示</span>
+        <label class="sb-check"><input type="checkbox" id="showToast" /> 拦截时右下角提示</label>
+      </div>
+    </section>
+
+    <section class="sb-stats" id="stats">
+      <div class="sb-stat-num" id="stat-count">–</div>
+      <div class="sb-stat-body">
+        <div class="sb-stat-title" id="stat-title">正在读取当前页面…</div>
+        <div class="sb-stat-names" id="stat-names"></div>
+      </div>
+    </section>
+
+    <section class="sb-card sb-grow">
+      <div class="sb-row sb-row-top">
+        <span class="sb-label">屏蔽名单</span>
+        <span class="sb-hint">一行一个 · 支持 * 通配符 · /正则/ · # 注释</span>
+      </div>
+      <textarea id="uploaders" spellcheck="false" placeholder="影视飓风&#10;亿点点不一样&#10;飓风*"></textarea>
+
+      <details class="sb-details">
+        <summary>按标题关键词屏蔽（可选）</summary>
+        <textarea id="titles" spellcheck="false" placeholder="每行一个标题关键词"></textarea>
+      </details>
+    </section>
+
+    <footer class="sb-footer">
+      <button type="button" class="sb-btn" id="btn-export">导出</button>
+      <button type="button" class="sb-btn" id="btn-import">导入</button>
+      <button type="button" class="sb-btn sb-danger" id="btn-reset">恢复默认</button>
+      <span class="sb-saved" id="saved">已保存</span>
+    </footer>
+
+    <script src="../lib/blocklist.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

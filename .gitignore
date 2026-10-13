@@ -1,0 +1,25 @@
+# 依赖（本项目零依赖，这个只是防止以后 npm 装东西时误提交）
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# 日志与临时文件
+*.log
+npm-debug.log*
+.tmp/
+.cache/
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 抓页面时留下的临时 HTML（用于分析真实 DOM，不进仓库）
+probe-*.html

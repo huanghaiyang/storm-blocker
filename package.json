@@ -1,0 +1,13 @@
+{
+  "name": "storm-blocker",
+  "version": "1.0.2",
+  "private": true,
+  "description": "Chrome 扩展：在 B 站 / YouTube 按 UP 主名字屏蔽视频（默认过滤影视飓风及其矩阵账号）",
+  "scripts": {
+    "test": "node tests/blocklist.test.js",
+    "icons": "node tools/make-icons.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
